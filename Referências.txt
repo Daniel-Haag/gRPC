@@ -1,0 +1,13 @@
+https://www.google.com/search?q=o+que+%C3%A9+GRPC&oq=o+que+%C3%A9+GRPC&aqs=chrome..69i57j0i512l5j0i10i512l4.2246j0j4&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:c75cee41,vid:AxYEyvX3xxI
+
+https://www.treinaweb.com.br/blog/servicos-grpc-no-asp-net-core
+
+https://learn.microsoft.com/pt-br/aspnet/core/grpc/basics?view=aspnetcore-7.0
+
+------------------------------------------------------------------------------------------
+
+gRPC (gRPC Remote Procedure Call) é uma plataforma de código aberto de alta performance, desenvolvida pela Google, para comunicação entre serviços distribuídos.
+
+Ele permite que os serviços se comuniquem de forma eficiente e confiável, usando o protocolo HTTP/2, o que garante maior desempenho em comparação com o HTTP/1.x tradicional. Além disso, ele suporta diversos tipos de serialização de dados, incluindo JSON, Protocol Buffers e outros.
+
+O gRPC usa um modelo cliente-servidor, em que o cliente envia uma solicitação ao servidor e espera uma resposta. Ele também suporta streaming de dados bidirecional, permitindo que os clientes enviem e recebam fluxos de dados em tempo real.
