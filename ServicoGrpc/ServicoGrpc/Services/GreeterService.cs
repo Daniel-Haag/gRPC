@@ -1,4 +1,5 @@
 using Grpc.Core;
+using Microsoft.AspNetCore.Server.IIS.Core;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,21 @@ namespace ServicoGrpc
             {
                 Message = "Olá " + request.Name
             });
+        }
+
+        public override Task<TestingMethodReply> TestingMethod(TestingMethodRequest request, ServerCallContext context)
+        {
+            if (request.TestName == "Teste envio")
+            {
+                return Task.FromResult(new TestingMethodReply
+                {
+                    TesteMessage = "Teste retorno"
+                });
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

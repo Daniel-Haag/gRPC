@@ -47,6 +47,8 @@ namespace ServicoGrpc {
 
     static readonly grpc::Marshaller<global::ServicoGrpc.HelloRequest> __Marshaller_greet_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServicoGrpc.HelloRequest.Parser));
     static readonly grpc::Marshaller<global::ServicoGrpc.HelloReply> __Marshaller_greet_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServicoGrpc.HelloReply.Parser));
+    static readonly grpc::Marshaller<global::ServicoGrpc.TestingMethodRequest> __Marshaller_greet_TestingMethodRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServicoGrpc.TestingMethodRequest.Parser));
+    static readonly grpc::Marshaller<global::ServicoGrpc.TestingMethodReply> __Marshaller_greet_TestingMethodReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServicoGrpc.TestingMethodReply.Parser));
 
     static readonly grpc::Method<global::ServicoGrpc.HelloRequest, global::ServicoGrpc.HelloReply> __Method_SayHello = new grpc::Method<global::ServicoGrpc.HelloRequest, global::ServicoGrpc.HelloReply>(
         grpc::MethodType.Unary,
@@ -54,6 +56,13 @@ namespace ServicoGrpc {
         "SayHello",
         __Marshaller_greet_HelloRequest,
         __Marshaller_greet_HelloReply);
+
+    static readonly grpc::Method<global::ServicoGrpc.TestingMethodRequest, global::ServicoGrpc.TestingMethodReply> __Method_TestingMethod = new grpc::Method<global::ServicoGrpc.TestingMethodRequest, global::ServicoGrpc.TestingMethodReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TestingMethod",
+        __Marshaller_greet_TestingMethodRequest,
+        __Marshaller_greet_TestingMethodReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -76,6 +85,11 @@ namespace ServicoGrpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::ServicoGrpc.TestingMethodReply> TestingMethod(global::ServicoGrpc.TestingMethodRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -83,7 +97,8 @@ namespace ServicoGrpc {
     public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
+          .AddMethod(__Method_TestingMethod, serviceImpl.TestingMethod).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -93,6 +108,7 @@ namespace ServicoGrpc {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServicoGrpc.HelloRequest, global::ServicoGrpc.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_TestingMethod, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServicoGrpc.TestingMethodRequest, global::ServicoGrpc.TestingMethodReply>(serviceImpl.TestingMethod));
     }
 
   }

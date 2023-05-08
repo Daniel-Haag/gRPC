@@ -17,6 +17,8 @@ namespace ServicoGrpc {
 
     static readonly grpc::Marshaller<global::ServicoGrpc.HelloRequest> __Marshaller_greet_HelloRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ServicoGrpc.HelloRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ServicoGrpc.HelloReply> __Marshaller_greet_HelloReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ServicoGrpc.HelloReply.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ServicoGrpc.TestingMethodRequest> __Marshaller_greet_TestingMethodRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ServicoGrpc.TestingMethodRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ServicoGrpc.TestingMethodReply> __Marshaller_greet_TestingMethodReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ServicoGrpc.TestingMethodReply.Parser.ParseFrom);
 
     static readonly grpc::Method<global::ServicoGrpc.HelloRequest, global::ServicoGrpc.HelloReply> __Method_SayHello = new grpc::Method<global::ServicoGrpc.HelloRequest, global::ServicoGrpc.HelloReply>(
         grpc::MethodType.Unary,
@@ -24,6 +26,13 @@ namespace ServicoGrpc {
         "SayHello",
         __Marshaller_greet_HelloRequest,
         __Marshaller_greet_HelloReply);
+
+    static readonly grpc::Method<global::ServicoGrpc.TestingMethodRequest, global::ServicoGrpc.TestingMethodReply> __Method_TestingMethod = new grpc::Method<global::ServicoGrpc.TestingMethodRequest, global::ServicoGrpc.TestingMethodReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TestingMethod",
+        __Marshaller_greet_TestingMethodRequest,
+        __Marshaller_greet_TestingMethodReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -97,6 +106,22 @@ namespace ServicoGrpc {
       public virtual grpc::AsyncUnaryCall<global::ServicoGrpc.HelloReply> SayHelloAsync(global::ServicoGrpc.HelloRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
+      }
+      public virtual global::ServicoGrpc.TestingMethodReply TestingMethod(global::ServicoGrpc.TestingMethodRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TestingMethod(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::ServicoGrpc.TestingMethodReply TestingMethod(global::ServicoGrpc.TestingMethodRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TestingMethod, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::ServicoGrpc.TestingMethodReply> TestingMethodAsync(global::ServicoGrpc.TestingMethodRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TestingMethodAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::ServicoGrpc.TestingMethodReply> TestingMethodAsync(global::ServicoGrpc.TestingMethodRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TestingMethod, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override GreeterClient NewInstance(ClientBaseConfiguration configuration)
